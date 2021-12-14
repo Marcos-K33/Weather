@@ -8,6 +8,7 @@ const SearchBar = () => {
     const refSearchIcon = useRef();
     const [, setPixa] = useContext(PixaContext);
     const { current : [current, setCurrent],
+            forecast: [, setForecast],
             loader: [, setLoader],
             found: [, setFound] } = useContext(WeatherContext);
     
@@ -18,7 +19,11 @@ const SearchBar = () => {
             AxiosUtil().getPixa(url).then(data => setPixa(data));
             AxiosUtil().getWeather('&q=ciudad de mexico').then(data => {
                 setCurrent(data);
-                handleLoadersFalse(false, false);
+                let onecall = `&lat=${data.coord.lat}&lon=${data.coord.lon}`;
+                AxiosUtil().getWeatherOneCall(onecall).then(data =>{
+                    setForecast(data);
+                    handleLoadersFalse(false, false);
+                });
             });
         }, 2000);
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -39,10 +44,14 @@ const SearchBar = () => {
                     throw new Error('Ocurrió un problema al obtener los datos del clima');
                 }
 
+                let onecall = `&lat=${res.coord.lat}&lon=${res.coord.lon}`;
+                AxiosUtil().getWeatherOneCall(onecall).then(data => setForecast(data));
                 setCurrent(res);
                 AxiosUtil().getPixa(url)
                 .then(data => {
-                    if(data.total > 0){
+                    var {hits} = data;
+                    hits = hits && hits.filter(hit => hit.imageHeight < hit.imageWidth);
+                    if(data.total > 0 && hits.lenght > 0){
                         setPixa(data);
                         handleLoadersFalse(false, false);
                     }else{

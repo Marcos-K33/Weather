@@ -6,7 +6,7 @@ import { WeatherProvider } from './context/WeatherContext';
 function App() {
 
   return (
-    <div className="App px-6">
+    <div className="App p-6">
         <WeatherProvider>
             <Container />
         </WeatherProvider>

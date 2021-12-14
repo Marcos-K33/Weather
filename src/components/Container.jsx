@@ -4,6 +4,7 @@ import WeatherContext from "../context/WeatherContext";
 import DescContainer from "./DescContainer";
 import SearchBar from "./SearchBar";
 import Loader from "./Loader";
+import HourlyDailyContainer from "./HourlyDailyContainer";
 
 const Container = () => {
     const { current: [current, ],
@@ -17,6 +18,7 @@ const Container = () => {
                 {(!found && !loader && current) ?
                     <div className="flex flex-col md:flex-row">
                         <DescContainer />
+                        <HourlyDailyContainer />
                     </div>
                     :
                     <Loader loader={loader} />
