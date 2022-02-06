@@ -31,7 +31,7 @@ function CardDaily({item}) {
                 <div className="w-full text-center cont-left">
                     <i className={_utils.getIcon(weather[0].id) + " text-3xl my-3 shadow-icon"}></i>
                     <p className="text-gray-600">{weather[0].description}</p>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col w-2/4 mx-auto">
                         <div className="flex flex-row flex-nowrap justify-evenly">
                             <div className="flex flex-row justify-center flex-nowrap items-center">
                                 <i className="wi wi-direction-up text-2xl my-3"></i>
@@ -54,7 +54,7 @@ function CardDaily({item}) {
                         </div>
                     </div>
                 </div>
-                <div className="w-full pl-3 cont-right">
+                <div className="w-full pl-3 cont-right overflow-x-scroll md:overflow-visible">
                     <table className="table-auto">
                         <thead>
                             <tr>
@@ -74,7 +74,7 @@ function CardDaily({item}) {
                                 <td className="p-2">{`${_utils.roundTemp(temp.night)}°C`}</td>
                             </tr>
                             <tr>
-                                <td className="text-sm p-2">Sensación Térmica</td>
+                                <td className="text-sm p-2 whitespace-nowrap">Sensación Térmica</td>
                                 <td className="p-2">{`${_utils.roundTemp(feels_like.morn)}°C`}</td>
                                 <td className="p-2">{`${_utils.roundTemp(feels_like.day)}°C`}</td>
                                 <td className="p-2">{`${_utils.roundTemp(feels_like.eve)}°C`}</td>
@@ -106,7 +106,7 @@ const HourlyDailyContainer = () => {
             </div>
             <div className="my-4">
                 <h2 className="text-2xl text-center md:text-left ml-0 md:ml-4 mt-4">Pronóstico 6 días</h2>
-                <div className="flex flex-nowrap overflow-x-scroll py-2">
+                <div className="flex flex-col md:flex-row py-2 md:overflow-x-scroll">
                     {
                         daily.map(item => <CardDaily key={Math.random() * Date.now() - Math.random()} item={item} />)
                     }

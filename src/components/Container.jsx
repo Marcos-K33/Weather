@@ -16,9 +16,22 @@ const Container = () => {
             <PixaProvider>
                 <SearchBar />
                 {(!found && !loader && current) ?
-                    <div className="flex flex-col md:flex-row">
-                        <DescContainer />
-                        <HourlyDailyContainer />
+                    <div className="flex-col flex">
+                        <div className="flex flex-col md:flex-row">
+                            <DescContainer />
+                            <HourlyDailyContainer />
+                        </div>
+                        <footer className='w-full py-4 px-2 text-center'>
+                            <small className='text-skyBlue'>
+                                <p className='my-2'>
+                                    Información meteorológica proporcionada por <a className="underline" href="https://openweathermap.org/" taget="_blank" rel="noopener noreferrer" >OpenWeather</a> e imágenes proporcionadas por <a className="underline" href='https://pixabay.com/es/' target="_blank" rel='noopener noreferrer' >Pixabay</a>
+                                </p>
+                            </small>
+                            <div className='flex justify-between md:w-2/12 w-6/12 mx-auto'>
+                                <p className='my-2 text-skyBlue text-xs'><a className="underline" href='https://codepen.io/tholman/pen/yenku' target="_blank" rel='noopener noreferrer' >loader cloud</a></p>
+                                <p className='my-2 text-skyBlue text-xs'><a className="underline" href='https://codepen.io/brettclanton001/pen/Hdgru' target="_blank" rel="noopener noreferrer" >loader compass</a></p>
+                            </div>
+                        </footer>
                     </div>
                     :
                     <Loader loader={loader} />

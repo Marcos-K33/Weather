@@ -11,6 +11,7 @@ const DescContainer = () => {
     const code = (weather) ? weather[0].id : "0";
     var {hits} = pixa;
     hits = hits && hits.filter(hit => hit.imageHeight < hit.imageWidth);
+    let random = Math.floor(Math.random() * hits.length);;
 
     return (
         <div className="bg-sky-blue rounded-lg py-3 text-darkBlue w-full md:w-1/4 text-center">
@@ -18,7 +19,7 @@ const DescContainer = () => {
                 <small className="mx-auto break-words pill bg-dark-blue text-skyBlue">{`${_utils.mssToLocaleDateString(Date.now() / 1000)}, ${current.name}, ${sys.country}`}</small>
             </div>
             <div className="mx-auto p-3 rounded-lg">
-                <img className="rounded-lg shadow-xl mx-auto max-h-80" src={hits[0].largeImageURL} alt={hits[0].tags} />
+                <img className="rounded-lg shadow-xl mx-auto max-h-80" src={hits[random].largeImageURL} alt={hits[random].tags} />
             </div>
             <div className="flex flex-nowrap items-center justify-center my-5">
                 <i className={_utils.getIcon(code) + " text-3xl mr-4 shadow-icon"}></i>

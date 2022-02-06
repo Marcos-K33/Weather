@@ -14,7 +14,7 @@ const SearchBar = () => {
     
 
     useEffect(() => {
-        setTimeout(() => {
+        let timer = setTimeout(() => {
             let url = `&q=cdmx`;
             AxiosUtil().getPixa(url).then(data => setPixa(data));
             AxiosUtil().getWeather('&q=ciudad de mexico').then(data => {
@@ -26,6 +26,10 @@ const SearchBar = () => {
                 });
             });
         }, 2000);
+
+        return () => {
+            clearTimeout(timer);
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
@@ -41,6 +45,7 @@ const SearchBar = () => {
             AxiosUtil().getWeather(url)
             .then(res => {
                 if (res.status && res.status === 500){
+                    handleLoadersFalse(false, true);
                     throw new Error('Ocurrió un problema al obtener los datos del clima');
                 }
 

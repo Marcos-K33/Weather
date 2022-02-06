@@ -15,10 +15,3 @@ function App() {
 }
 
 export default App;
-
-
-/**
- * TODO : add to footer link to loader wetaher
- * https://codepen.io/tholman/pen/yenku loader cloud
- * https://codepen.io/brettclanton001/pen/Hdgru loader compass
- **/
