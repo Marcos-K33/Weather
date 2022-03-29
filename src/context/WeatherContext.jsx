@@ -7,12 +7,16 @@ const WeatherProvider = ({children}) => {
     const [forecast, setForecast] = useState({});
     const [loader, setLoader] = useState(true);
     const [found, setFound] = useState(true);
+    const [modalShow, setModalShow] = useState(false);
+    const [dataModal, setDataModal] = useState({});
 
     const store = {
         loader: [loader, setLoader],
         forecast: [forecast, setForecast],
         current: [current, setCurrent],
-        found: [found, setFound]
+        found: [found, setFound],
+        modal: [modalShow, setModalShow],
+        dataModal: [dataModal, setDataModal]
     }
 
     return (
