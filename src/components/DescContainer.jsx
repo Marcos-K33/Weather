@@ -11,9 +11,9 @@ const DescContainer = () => {
     const code = (weather) ? weather[0].id : "0";
 
     return (
-        <div className="bg-gradient-to-tr from-purple-400 to-green-400 rounded-lg py-3 text-white w-full md:w-1/4 text-center">
+        <div className="bg-gradient-to-tr from-green-200 to-blue-200 dark:from-red-500 dark:to-purple-500 rounded-lg py-3 text-dark dark:text-white w-full md:w-1/4 text-center shadow-lg dark:shadow-none">
             <div className="my-4">
-                <small className="shadow-lg mx-auto break-words bg-gray-900 pill text-skyBlue">{`${_utils.mssToLocaleDateString(Date.now() / 1000)}, ${current.name}, ${sys.country}`}</small>
+                <small className="shadow-lg mx-auto break-words bg-gray-900 pill text-white">{`${_utils.mssToLocaleDateString(Date.now() / 1000)}, ${current.name}, ${sys.country}`}</small>
             </div>
             <div className="mx-auto p-3 rounded-lg">
                 <img className="rounded-lg shadow-xl mx-auto max-h-80" src={pixa[0].largeImageURL} alt={pixa[0].tags} />

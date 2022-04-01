@@ -11,10 +11,10 @@ const DetailModalDaily = ({ dataModal, modalShow, setModalShow }) => {
     }
 
     return (
-        <div className={!modalShow ? "invisible fixed h-full w-full top-0 left-0 bg-gray-900 z-50" : "fixed h-full w-full top-0 left-0 bg-gray-900 z-50"}>
-            <div className="showModal text-white w-10/12 md:w-6/12 mx-auto relative p-5 rounded-lg bg-gradient-to-tr from-purple-400 to-green-400">
+        <div className={`${!modalShow ? "invisible" : ""} fixed h-full w-full top-0 left-0 bg-gray-100 dark:bg-gray-900 z-50`}>
+            <div className="showModal text-gray-800 dark:text-white w-10/12 md:w-6/12 mx-auto relative p-5 rounded-lg bg-gradient-to-tr from-green-200 to-blue-200 dark:from-red-500 dark:to-purple-500 shadow-xl dark:shadow-none">
                 <div className="flex justify-end items-center cursor-pointer" onClick={handleModalShow}>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 rounded-full bg-gradient-to-l from-red-400 to-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 rounded-full text-white bg-gradient-to-l from-red-400 to-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </div>

@@ -52,7 +52,7 @@
 }
 
 .searchButton {
-  color: white;
+  color: black;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -63,12 +63,15 @@
   transition: 0.4s;
 }
 
+.dark .searchButton{
+    color: white;
+}
+
 .searchInput {
   border: none;
   background: none;
   outline: none;
   padding: 0;
-  color: white;
   font-size: 16px;
   transition: 0.4s;
   line-height: 40px;
@@ -82,7 +85,7 @@
 
 .showModal {
   opacity: 0;
-  animation: showModal 0.5s ease-out forwards;
+  animation: showModal 0.5s ease-in forwards;
 }
 
 .pill {
@@ -106,6 +109,11 @@
 
 .border-gradient::after,
 .border-gradient::before {
+  background: #fff
+}
+
+.dark .border-gradient::after,
+.dark .border-gradient::before {
   background: #111827;
 }
 
@@ -116,7 +124,45 @@
 .border-gradient:hover::before,
 .border-gradient:focus::before {
   transform: scale(1.03);
-  background-image: linear-gradient(to bottom right, #aeffb9 0%, #a091ff 100%);
+  background-image: linear-gradient(to bottom right, #A7F3D0 0%, #BFDBFE 100%);
+}
+
+.dark .border-gradient:hover::before,
+.dark .border-gradient:focus::before {
+  transform: scale(1.03);
+  background-image: linear-gradient(to bottom right, #EF4444 0%, #8B5CF6 100%);
+}
+
+#dark-mode {
+    height: 1.5em;
+    width: 3em;
+    position: relative;
+    background: #111827;
+    transition: .3s ease-out;
+}
+
+#dark-mode::after {
+    content: '';
+    position: absolute;
+    width: 1.2em;
+    height: 1.2em;
+    top: 2px;
+    left: 2px;
+    background: linear-gradient(to right, #A7F3D0, #BFDBFE);
+    border-radius: 50%;
+    transition: .3s ease-out;
+}
+
+#dark-mode:checked::after {
+    transform: translateX(1.5em);
+}
+
+.dark #dark-mode:checked {
+    background: linear-gradient(to right, #EF4444, #8B5CF6);
+}
+
+.dark #dark-mode:checked::after {
+    background: White;
 }
 
 /**  Media Queries **/
@@ -180,7 +226,11 @@
 }
 
 #cloud path {
-  fill: #5885af;
+  fill: #F3F4F6;
+}
+
+.dark #cloud path{
+    fill: #111827;
 }
 
 #sun {

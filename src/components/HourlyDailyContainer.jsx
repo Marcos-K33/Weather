@@ -11,7 +11,7 @@ function CardHourly({item}) {
     let time = _utils.mssToLocalTimeDate(item.dt);
     
     return (
-        <div className="bg-gradient-to-bl from-purple-400 to-green-400 p-4 flex flex-col text-center mx-2 rounded-xl">
+        <div className="bg-gradient-to-bl from-green-200 to-blue-200 dark:from-red-500 dark:to-purple-500 p-4 flex flex-col text-center mx-2 rounded-xl">
             <p className="">{`${time} ${(parseInt(time)>=0 && parseInt(time) < 12) ? ' am': ' pm'}`}</p>
             <p className=" capitalize mt-2 whitespace-nowrap">{weather[0].description}</p>
             <i className={_utils.getIcon(weather[0].id) + " text-3xl my-3 shadow-icon"}></i>
@@ -30,7 +30,7 @@ const HourlyDailyContainer = () => {
     daily = [...daily.slice(1,7)];
 
     return (<>
-        <div className="py-3 ml-0 mt-4 md:mt-0 md:ml-4 text-white w-fulll md:w-3/4 text-center flex flex-col">
+        <div className="py-3 ml-0 mt-4 md:mt-0 md:ml-4 text-gray-800 dark:text-white w-fulll md:w-3/4 text-center flex flex-col">
             <div className="my-4">
                 <h2 className="text-2xl text-center md:text-left ml-0 md:ml-4">Pronóstico 24 hrs.</h2>
                 <div className="flex flex-nowrap overflow-x-scroll overflow-y-hidden p-2">

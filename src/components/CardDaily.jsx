@@ -13,7 +13,7 @@ const CardDaily = ({ item, setModalShow, setDataModal }) => {
     const { weather, temp } = item;
 
     return (
-        <div className="p-4 mx-3 cursor-pointer border-gradient relative" onClick={handleDetails}>
+        <div className="p-4 mx-3 cursor-pointer border-gradient relative shadow-xl dark:shadow-none" onClick={handleDetails}>
             <div className="w-full">
                 <h3 className="text-base text-center mb-3">{_utils.mssToLocaleDateString(item.dt)}</h3>
             </div>
