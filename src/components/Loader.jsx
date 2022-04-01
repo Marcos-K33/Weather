@@ -37,7 +37,7 @@ function LoaderContainer() {
                 <span className="drop"></span>
             </div>
   
-            <div className="text tracking-whide text-center font-bold text-skyBlue">
+            <div className="text tracking-whide text-center font-bold text-gray-800 dark:text-white">
                 Buscando afuera por ti..... espera un segundo
             </div>
         </div>
@@ -48,9 +48,9 @@ function Notfound() {
     return (
         <div className="icon-container showUp">
             <div className="mx-auto text-center w-full md:w-2/4 lg:w-1/4 my-4">
-                <h2 className="text-xl text-skyBlue">Vaya!😯 parece que esa ubicación aún no ha sido descubierta. Intenta con una diferente😊</h2>
+                <h2 className="text-xl text-gray-800 dark:text-white">Vaya!😯 parece que esa ubicación aún no ha sido descubierta. Intenta con una diferente😊</h2>
             </div>
-            <div className="icon border-2 border-skyblue">
+            <div className="icon border-2 border-gray-900 dark:border-gray-200 bg-gray-900">
                 <div className="shadow-point top one triangle"></div>
                 <div className="shadow-point top two triangle"></div>
                 <div className="shadow-point bottom one triangle"></div>
@@ -61,7 +61,7 @@ function Notfound() {
                 <div className="shadow-point right two triangle"></div>
                 <div className="outer-rim"></div>
                 <div className="inner-rim"></div>
-                <div className="inner-circle bg-blue-gray"></div>
+                <div className="inner-circle bg-gray-900"></div>
                 <div className="big-point top one triangle"></div>
                 <div className="big-point top two triangle"></div>
                 <div className="big-point bottom one triangle"></div>

@@ -16,28 +16,28 @@
 
 * {
   outline: none !important;
+  user-select: none !important;
   transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-::-webkit-scrollbar{
-    width: 4px;
-    height: 4px;
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
 }
 
-::-webkit-scrollbar-thumb{
-    background: #5885af;
-    border-radius: 10px;
+::-webkit-scrollbar-thumb {
+  background: #5885af;
+  border-radius: 10px;
 }
 
-::-webkit-scrollbar-track{
-    box-shadow: inset 0 0 2px rgba(0,0,0,0.21);
-    border-radius: 10px;
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.21);
+  border-radius: 10px;
 }
 
 .searchBox {
   height: 40px;
   border-radius: 40px;
-  background: #5885af;
 }
 
 .searchBox:hover > .searchInput {
@@ -46,26 +46,25 @@
   margin-left: 1.5rem;
 }
 
-.searchBox:hover > .searchButton {
-  background: #5885af;
-}
-
 .searchInput:focus {
   width: 230px;
   margin-left: 1.5rem;
 }
 
 .searchButton {
-  color: white;
+  color: black;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   border: none;
-  background: #5885af;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: 0.4s;
+}
+
+.dark .searchButton{
+    color: white;
 }
 
 .searchInput {
@@ -73,7 +72,6 @@
   background: none;
   outline: none;
   padding: 0;
-  color: white;
   font-size: 16px;
   transition: 0.4s;
   line-height: 40px;
@@ -82,7 +80,12 @@
 
 .showUp {
   opacity: 0;
-  animation: showUp 0.8s ease-in-out 0.4s forwards;
+  animation: showUp 0.8s ease-in-out forwards;
+}
+
+.showModal {
+  opacity: 0;
+  animation: showModal 0.5s ease-in forwards;
 }
 
 .pill {
@@ -90,59 +93,108 @@
   border-radius: 100px;
 }
 
-.shadow-icon{
-    text-shadow: 4px 4px 4px rgb(0 0 0 / 40%);
+.shadow-icon {
+  text-shadow: 4px 4px 4px rgb(0 0 0 / 40%);
 }
 
-.fw-container{
-    overflow: hidden;
-    transition: .5s ease;
-    cursor: pointer;
+.border-gradient::before,
+.border-gradient::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 0.75rem;
 }
 
-.fw-container .cont-left, .fw-container .cont-right{
-    transition: .5s ease;
+.border-gradient::after,
+.border-gradient::before {
+  background: #fff
 }
 
-.fw-container .cont-right{
-    opacity: 0;
-    width: 0rem;
-    height: 0;
+.dark .border-gradient::after,
+.dark .border-gradient::before {
+  background: #111827;
 }
 
-.fw-container:hover .cont-right{
-    opacity: 1;
-    width: 25rem;
-    height: auto;
+.border-gradient::before {
+  transition: transform 200ms;
 }
+
+.border-gradient:hover::before,
+.border-gradient:focus::before {
+  transform: scale(1.03);
+  background-image: linear-gradient(to bottom right, #A7F3D0 0%, #BFDBFE 100%);
+}
+
+.dark .border-gradient:hover::before,
+.dark .border-gradient:focus::before {
+  transform: scale(1.03);
+  background-image: linear-gradient(to bottom right, #EF4444 0%, #8B5CF6 100%);
+}
+
+#dark-mode {
+    height: 1.5em;
+    width: 3em;
+    position: relative;
+    background: #111827;
+    transition: .3s ease-out;
+}
+
+#dark-mode::after {
+    content: '';
+    position: absolute;
+    width: 1.2em;
+    height: 1.2em;
+    top: 2px;
+    left: 2px;
+    background: linear-gradient(to right, #A7F3D0, #BFDBFE);
+    border-radius: 50%;
+    transition: .3s ease-out;
+}
+
+#dark-mode:checked::after {
+    transform: translateX(1.5em);
+}
+
+.dark #dark-mode:checked {
+    background: linear-gradient(to right, #EF4444, #8B5CF6);
+}
+
+.dark #dark-mode:checked::after {
+    background: White;
+}
+
 /**  Media Queries **/
 @media screen and (max-width: 620px) {
-    .searchBox:hover > .searchInput {
-        width: 230px;
-        padding: 0 6px;
-    }
-    
-    .fw-container:hover .cont-right{
-        opacity: 1;
-        width: 100%;
-        height: auto;
-    }
-
-    .fw-container:hover .cont-left{
-        width: 100%;
-    }
+  .searchBox:hover > .searchInput {
+    width: 230px;
+    padding: 0 6px;
+  }
 }
 
 /**  Animation **/
 @keyframes showUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(20px) scale(0);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes showModal {
+  from {
+    opacity: 0;
+    transform: translateY(-200%) scale(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(50%) scale(1);
   }
 }
 
@@ -174,7 +226,11 @@
 }
 
 #cloud path {
-  fill: #5885af;
+  fill: #F3F4F6;
+}
+
+.dark #cloud path{
+    fill: #111827;
 }
 
 #sun {
